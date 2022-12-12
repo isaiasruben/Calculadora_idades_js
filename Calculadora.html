@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>EXERCICIOS</title>
+    <style>
+    </style>
+</head>
+<body>
+	<h3>Calculadora de Idade</h3>
+	<input type="date" id="txtDataNasc" max="2022-12-09" min="1910-01-01" onchange="idade();"><br>
+	Idade: <label id="lbIdade"></label>
+	<script type="text/javascript">
+		function idade(){
+
+			var dataNascimento=document.getElementById('txtDataNasc').value;
+            var mensagem = document.getElementById("lbIdade");
+			var anoNascimento = dataNascimento.split('-');
+			var anoNascimento=anoNascimento[0];
+            var situacao="";
+
+			 var anoActual = new Date().getFullYear();
+
+			 var idade = anoActual - parseInt(anoNascimento);
+
+             if(idade>=0 && idade<=2)
+             {
+                mensagem.style.color='green';
+                situacao="Bebe";
+             }
+             else  if(idade>=3 && idade<=11)
+             {
+                mensagem.style.color='Blue';
+                situacao="Crianca";
+             }
+
+             else  if(idade>=12 && idade<=17)
+             {
+                mensagem.style.color='Orange';
+                situacao="Adolescente";
+             }
+             else if(idade>=18 && idade<=34)
+             {
+                mensagem.style.color='yellow';
+                situacao="Jovem";
+             }
+
+             else  if(idade>=35 && idade<=59)
+             {
+                mensagem.style.color='red';
+                situacao="Adulto";
+             }
+
+             else
+             {
+                mensagem.style.color='Black';
+                situacao="Idoso";
+             }
+
+			 mensagem.innerHTML=idade + " "+ situacao;
+           
+
+
+		}
+	</script>
+</body>
+</html>
